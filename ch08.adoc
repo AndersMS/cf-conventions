@@ -471,7 +471,7 @@ variables:
     tp_interpolation:interpolation_name = "bi_quadratic_remote_sensing" ;
     tp_interpolation:tie_point_dimensions = "track: tp_track zone_track
                                              scan: tp_scan zone_scan
-                                             scan: tp_time_scan"  ;
+;
     tp_interpolation:tie_point_indices = "track: track_indices
                                           scan: scan_indices
                                           scan: time_scan_indices" ;
