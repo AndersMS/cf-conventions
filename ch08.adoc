@@ -472,7 +472,7 @@ variables:
     tp_interpolation:tie_point_dimensions = "track: tp_track zone_track
                                              scan: tp_scan zone_scan
                                              scan: tp_time_scan"  ;
-    tp_interpolation:tie_point_indices = "track: track_indices zone_track
+    tp_interpolation:tie_point_indices = "track: track_indices
                                           scan: scan_indices zone_scan
                                           scan: time_scan_indices" ;
     tp_interpolation:interpolation_parameters = "ce1: ce1  ca2: ca2  ce3: ce3 flags: interpolation_zone_flags" ;
