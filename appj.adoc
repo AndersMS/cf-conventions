@@ -115,8 +115,10 @@ where `ua` and `ub` are the coordinate values at tie points `A` and `B` respecti
 [cols="6,15"]
 |===============
 | Name | **`interpolation_name = "quadratic_remote_sensing"`** 
-| Description | A one dimensional quadratic method for interpolation of the geographic coordinates latitude and longitude, typically used for remote sensing products with geographic coordinates on the reference ellipsoid. Requires a coordinate pair with `standard_name` `latitude` and `longitude`. +
-  + 
+| Description | A one dimensional quadratic method for interpolation of the geographic coordinates latitude and longitude, typically used for remote sensing products with geographic coordinates on the reference ellipsoid. +
+
+Requires a pair of latitude and longitude tie point variables, as defined unambiguously in <<latitude-coordinate>> and <<longitude-coordinate>>.
+
 By default, interpolation is performed directly in the latitude and longitude coordinates, but may be performed in cartesian coordinates where required for achieving the desired accuracy. This must be indicated by setting the `location_use_cartesian` flag within the interpolation parameter `interpolation_zone_flags` for each interpolation zone where interpolation in cartesian coordinates is required.  
 
 The quadratic interpolation coefficients `ce` and `ca`, stored as interpolation parameters in the product, describe a point `P` between the tie points `A` and `B`, which is equivalent of an additional tie point in the sense that the method will accurately reconstitute the point `P` in the same way as it accurately reconstitutes the tie points `A` and `B`. See <<quadratic1>> and <<quadratic2>>.
@@ -210,7 +212,7 @@ Using the selected `(i2, i1)`, the cartesian interpolation coefficients are foun
 `vac = fqv(va, vc, cv_ac, 0.5);` + 
 `vbd = fqv(vb, vd, cv_bd, 0.5);` + 
 `vz = fqv( vab, vcd, cv_zz, 0.5);` +
-`cv_z = fcv( vac, vbd, vz, 0.5).` +
+`cv_z = fcv(vac, vbd, vz, s(ia1, ib1, i1)).` +
 Finally, before storing them in the dataset's interpolation parameters, convert the coefficients to the parametric representation + 
 `(ce1(tp2, iz1), ca1(tp2, iz1))  = fcv2cea( va, vb, cv_ab);` + 
 `(ce1(tp2+1, iz1), ca1(tp2+1, iz1))  = fcv2cea( vc, vd, cv_cd);` + 
